@@ -8,7 +8,7 @@ function Register() {
     <div>
       <Layout>
         <div className="p-36 z-50 absolute">
-          <h1 className="font-poppins font-bold text-4xl">Register Now</h1>
+          <h1 className="primary">Register Now</h1>
           <div className="flex flex-col pt-6">
             <TextField placeholder="e-mail" type="text" />
             <br />
@@ -19,7 +19,7 @@ function Register() {
             <Button text="Register" />
             <br />
             <Link to="/login">
-              <h3 className="text-white underline">&lt; Back to login</h3>
+              <h4 className="underline">&lt; Back to login</h4>
             </Link>
           </div>
         </div>

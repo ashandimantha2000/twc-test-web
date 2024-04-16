@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-h1{
-    color: white;
+@layer components {
+  .primary {
+    @apply font-poppins font-bold text-5xl text-white;
+  }
 }
 
-p{
-    color: white;
+@layer components {
+  .secondary {
+    @apply font-medium text-3xl text-white;
+  }
+}
+
+@layer components {
+    .ternary {
+      @apply text-4xl text-white;
+    }
+  }
+
+h4,
+p {
+  color: white;
+  font-family: Poppins;
 }
