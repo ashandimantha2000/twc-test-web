@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Layout from "../components/layout.jsx";
-import TextField from "./micro-components/TextField.jsx";
 import Button from "../components/micro-components/Button.jsx";
 import { Link } from "react-router-dom";
 
@@ -38,29 +37,39 @@ function Register() {
         <div className="p-36 z-50 absolute">
           <h1 className="primary">Register Now</h1>
           <div className="flex flex-col pt-6">
-            <TextField
+            <input
+              className="textfield"
               placeholder="e-mail"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
             <br />
-            <TextField
+            <input
+              className="textfield"
               placeholder="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <br />
-            <TextField
+            <input
+              className="textfield"
               placeholder="confirm password"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+
             <br />
             {error && <p className="text-red-500">{error}</p>}
-            <Button text="Register" destination="/login" onClick={handleRegister} />
+            <Button
+              text="Register"
+              destination="/login"
+              onClick={handleRegister}
+            />
             <br />
             <Link to="/login">
               <h4 className="underline">&lt; Back to login</h4>

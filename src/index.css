@@ -26,6 +26,12 @@
   }
 }
 
+@layer components {
+  .textfield {
+    @apply h-10 w-80 p-5 rounded-3xl text-primary-green;
+  }
+}
+
 
 h4,
 p {
