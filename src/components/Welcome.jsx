@@ -1,5 +1,5 @@
 import Button from "./micro-components/Button";
-
+import { Link } from "react-router-dom";
 import Background from "./Background";
 
 function Welcome() {
@@ -14,7 +14,8 @@ function Welcome() {
             to add new contact.
           </h3>
           <br />
-          <Button text="add your first contact" />
+          <Link to="/contacts">
+          <Button text="add your first contact" /></Link>
         </div>
       </Background>
 
