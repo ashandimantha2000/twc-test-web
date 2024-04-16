@@ -1,6 +1,6 @@
 import Layout from "../components/layout.jsx";
 import TextField from "../components/TextField";
-import Button from "./Button.jsx";
+import Button from "../components/micro-components/Button.jsx";
 import { Link } from "react-router-dom";
 
 function Register() {

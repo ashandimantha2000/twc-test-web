@@ -15,10 +15,16 @@
 }
 
 @layer components {
-    .ternary {
-      @apply text-4xl text-white;
-    }
+  .ternary {
+    @apply text-4xl text-white;
   }
+}
+
+@layer components {
+  .title {
+    @apply font-bold text-4xl text-white;
+  }
+}
 
 h4,
 p {
