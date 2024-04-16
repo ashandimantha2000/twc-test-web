@@ -1,5 +1,5 @@
-import Button from "./micro-components/Button";
-import Background from "./Background";
+import Button from "../components/micro-components/Button";
+import Background from "../components/Background";
 
 function Welcome() {
   return (

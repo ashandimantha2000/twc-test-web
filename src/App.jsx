@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
-import Login from "./components/Login.jsx"
-import Register from "./components/Register.jsx"
-import Welcome from "./components/Welcome.jsx"
-import Contacts from "./components/Contacts.jsx"
-import NewContact from "./components/NewContact.jsx";
+import Login from "./pages/Login.jsx"
+import Register from "./pages/Register.jsx"
+import Welcome from "./pages/Welcome.jsx"
+import Contacts from "./pages/Contacts.jsx"
+import NewContact from "./pages/NewContact.jsx";
 
 function App() {
   return (

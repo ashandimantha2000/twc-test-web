@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Layout from "../components/layout.jsx";
-import TextField from "./micro-components/TextField.jsx";
 import Button from "../components/micro-components/Button.jsx";
 import { Link } from "react-router-dom";
 
@@ -31,14 +30,17 @@ function Login() {
             contact portal
           </h2>
           <div className="flex flex-col pt-6">
-            <TextField
-              placeholder="e-mail"
+            <input
+              className="textfield"
               type="text"
+              placeholder="full name"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
             <br />
-            <TextField
+            <input
+              className="textfield"
               placeholder="password"
               type="password"
               value={password}
