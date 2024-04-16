@@ -14,8 +14,8 @@ function Welcome() {
             to add new contact.
           </h3>
           <br />
-          <Link to="/contacts">
-          <Button text="add your first contact" /></Link>
+          
+          <Button text="add your first contact" destination="/contacts" />
         </div>
       </Background>
 

@@ -16,7 +16,7 @@ function Register() {
             <br />
             <TextField placeholder="confirm password" type="password" />
             <br />
-            <Button text="Register" />
+            <Button text="Register"  destination="/login"/>
             <br />
             <Link to="/login">
               <h4 className="underline">&lt; Back to login</h4>

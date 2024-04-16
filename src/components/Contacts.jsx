@@ -8,7 +8,7 @@ function Contacts() {
     <Background>
       <div className="flex justify-between pt-12">
         <h2 className="title">Contacts</h2>
-        <Button text="add new contact" />
+        <Button text="add new contact" destination="/contacts/new"/>
       </div>
       <br />
       <div className="bg-white relative overflow-x-auto shadow-md sm:rounded-lg">

@@ -20,7 +20,7 @@ function Login() {
           </div>
           <br />
           <div className="flex justify-between">
-            <Button text="Login" />
+            <Button text="Login" destination="/" />
             <p>or</p>
             <Link to="/register">
               <h4 className="underline">&lt; Click here to Register</h4>
