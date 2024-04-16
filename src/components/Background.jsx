@@ -1,4 +1,3 @@
-import React from "react";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 

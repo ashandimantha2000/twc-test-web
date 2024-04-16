@@ -1,11 +1,10 @@
-import Button from "./Button";
-import { Link } from "react-router-dom";
-import { RiLogoutCircleLine } from "react-icons/ri";
+import Button from "./micro-components/Button";
+
 import Background from "./Background";
 
 function Welcome() {
   return (
-    <div>
+ 
       <Background>
         <div>
           <h1 className="primary pt-14">Welcome,</h1>
@@ -18,7 +17,7 @@ function Welcome() {
           <Button text="add your first contact" />
         </div>
       </Background>
-    </div>
+
   );
 }
 
