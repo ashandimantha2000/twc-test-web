@@ -7,21 +7,23 @@ import Button from "../components/micro-components/Button";
 
 function NewContact() {
   const [fullname, setFullname] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("male");
   const [email, setEmail] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const handleSaveBook = () => {
+  const handleSaveContact = () => {
+    console.log("Clicked")
     const data = {
       fullname,
       gender,
       email,
       phonenumber,
     };
+
     setLoading(true);
     axios
-      .post("http://localhost:5555/contacts", data)
+      .post("http://localhost:5555/contacts/new", data)
       .then(() => {
         setLoading(false);
         navigate("/contacts");
@@ -56,31 +58,40 @@ function NewContact() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-       
       </div>
       <br />
 
       <div className="flex justify-between pr-80">
-      <input
+        <input
           className="textfield"
           type="text"
           placeholder="phone number"
           value={phonenumber}
           onChange={(e) => setPhonenumber(e.target.value)}
         />
-       
+
         <h4>Gender</h4>
         <label className="block mb-2 text-white">
-          <input type="radio" name="gender" value="male" className="mr-2" />
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            className="mr-2"
+            onClick={(e) => setGender(e.target.value)}
+          />
           Male
         </label>
         <label className="block mb-2 text-white">
-          <input type="radio" name="gender" value="female" className="mr-2" />
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            className="mr-2"
+            onClick={(e) => setGender(e.target.value)}
+          />
           Female
         </label>
-
-        <Button text="save" onClick={handleSaveBook} />
+        <Button text="save" onClick={handleSaveContact} />
       </div>
     </Background>
   );
