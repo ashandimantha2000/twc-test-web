@@ -4,16 +4,18 @@ import Background from "../components/Background.jsx";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import Button from "../components/micro-components/Button";
+import Notification from "../components/Alerts/Notification.jsx";
 
 function NewContact() {
+  // const [showNotification, setShowNotification] = useState(false);
   const [fullname, setFullname] = useState("");
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState("Male");
   const [email, setEmail] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSaveContact = () => {
-    console.log("Clicked")
+    console.log("Clicked");
     const data = {
       fullname,
       gender,
@@ -43,7 +45,7 @@ function NewContact() {
       </h2>
       <br />
       {loading ? <Spinner /> : ""}
-      <div className="flex justify-between pr-72">
+      <div className="flex justify-between pr-96">
         <input
           className="textfield"
           type="text"
@@ -61,7 +63,7 @@ function NewContact() {
       </div>
       <br />
 
-      <div className="flex justify-between pr-80">
+      <div className="flex justify-between pr-96">
         <input
           className="textfield"
           type="text"
@@ -75,7 +77,7 @@ function NewContact() {
           <input
             type="radio"
             name="gender"
-            value="male"
+            value="Male"
             className="mr-2"
             onClick={(e) => setGender(e.target.value)}
           />
@@ -85,14 +87,16 @@ function NewContact() {
           <input
             type="radio"
             name="gender"
-            value="female"
+            value="Female"
             className="mr-2"
             onClick={(e) => setGender(e.target.value)}
           />
           Female
         </label>
-        <Button text="save" onClick={handleSaveContact} />
       </div>
+      <br />
+      <Button text="add your first contact" onClick={handleSaveContact} />
+  
     </Background>
   );
 }

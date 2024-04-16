@@ -6,7 +6,7 @@ function Button(props) {
     <Link to={props.destination}>
       <button
         onClick={props.onClick}
-        className="h-fit w-fit p-0 bg-transparent hover:bg-white text-white font-semibold hover:text-primary-green py-2 px-4 border border-white hover:border-transparent rounded-full"
+        className="h-fit w-fit px-7 text-xl bg-transparent hover:bg-white text-white font-semibold hover:text-primary-green py-2 border border-white hover:border-transparent rounded-full"
       >
         {props.text}
       </button>
