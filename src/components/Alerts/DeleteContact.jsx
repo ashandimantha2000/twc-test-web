@@ -1,6 +1,6 @@
-import Button from '../micro-components/Button'
 
-function Notification() {
+
+function DeleteContact() {
   return (
     <div className="p-4 bg-none">
       <h1 className="text-3xl my-4">
@@ -9,10 +9,9 @@ function Notification() {
             Your contact has been saved successfully!
           </h3>
         </div>
-        <Button text="Okay" />
       </h1>
     </div>
-  )
+  );
 }
 
-export default Notification
+export default DeleteContact;

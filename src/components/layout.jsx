@@ -7,7 +7,7 @@ function Layout({ children }) {
         {children}
       </div>
       {/* right */}
-      <div className="p-52 items-center h-full z-50 xl:p-20">
+      <div className="p-60 items-center h-full z-50 ">
         <img
           src="../src/assets/images/TWC-Logo.png"
           className=""

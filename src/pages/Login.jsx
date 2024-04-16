@@ -48,11 +48,11 @@ function Login() {
             />
           </div>
           <br />
-          <div className="flex justify-between">
+          <div className="flex justify-between align-middle">
             <Button text="Login" destination="/" onClick={handleLogin} />
-            <p>or</p>
+            <p className="text-xl px-4">or</p>
             <Link to="/register">
-              <h4 className="underline">&lt; Click here to Register</h4>
+              <h4 className="underline text-xl">&lt; Click here to Register</h4>
             </Link>
           </div>
           {error && <p className="text-red-500">{error}</p>}
