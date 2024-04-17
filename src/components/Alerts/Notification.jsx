@@ -1,4 +1,5 @@
 import FilledButton from "../micro-components/FilledButton";
+import PropTypes from 'prop-types';
 
 function Notification(props) {
 
@@ -20,5 +21,13 @@ function Notification(props) {
     ""
   );
 }
+
+//props validation
+Notification.propTypes = {
+  text: PropTypes.string.isRequired,
+  trigger: PropTypes.bool.isRequired,
+  setClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
+};
 
 export default Notification;
