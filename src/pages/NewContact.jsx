@@ -14,20 +14,7 @@ function NewContact() {
   const [phonenumber, setPhonenumber] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  const validateForm = () => {
-    if (!fullname || !email || !phonenumber) {
-      alert("Please fill in all the required fields.");
-      return false;
-    }
-    return true;
-  };
-
   const handleSaveContact = () => {
-    if (!validateForm()) {
-      return;
-    }
-
     const data = {
       fullname,
       gender,
@@ -37,11 +24,11 @@ function NewContact() {
 
     setLoading(true);
     axios
-      .post("http://localhost:5555/contacts/new", data)
+      .post("http://localhost:5555/contacts/new", data)   
       .then(() => {
         setLoading(false);
-        setShowNotification(true);
-        // navigate("/contacts");
+        setShowNotification(true)
+        // navigate("/contacts");  
       })
       .catch((err) => {
         console.log(err);
@@ -49,14 +36,9 @@ function NewContact() {
         setLoading(false);
       });
   };
-
   return (
     <div>
-      <Notification
-        text="Close"
-        trigger={showNotification}
-        setClose={setShowNotification}
-      >
+      <Notification text="Close" trigger={showNotification} setClose={setShowNotification}>
         Your contact has been saved successfully!
       </Notification>
       <Background>
@@ -81,8 +63,6 @@ function NewContact() {
             placeholder="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            title="Please enter a valid email address"
           />
         </div>
         <br />
@@ -119,13 +99,7 @@ function NewContact() {
           </label>
         </div>
         <br />
-        <Button
-          text="add your first contact"
-          onClick={() => {
-            handleSaveContact();
-            setShowNotification(true);
-          }}
-        />
+        <Button text="add your first contact" onClick={() => { handleSaveContact();  }} />
       </Background>
     </div>
   );
