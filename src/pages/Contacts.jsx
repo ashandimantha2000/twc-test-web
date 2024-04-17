@@ -65,7 +65,11 @@ function Contacts() {
                 {contacts.map((contact) => (
                   <tr key={contact._id}>
                     <th className="px-6 py-4 font-medium ">
-                      <img src="wwf" alt="image" />
+                      {contact.gender === 'Male' ? (
+                        <img src="../src/assets/images/Profile-Male.png" alt="male" />
+                      ) : (
+                        <img src="../src/assets/images/Profile-Female.png" alt="female" />
+                      )}
                     </th>
                     <td className="px-6 py-4">{contact.fullname}</td>
                     <td className="px-6 py-4">{contact.gender}</td>
