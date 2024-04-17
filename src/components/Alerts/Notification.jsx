@@ -1,18 +1,24 @@
-import Button from '../micro-components/Button'
+import FilledButton from "../micro-components/FilledButton";
 
-function Notification() {
-  return (
-    <div className="p-4 bg-none">
-      <h1 className="text-3xl my-4">
-        <div className="flex flex-row items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto">
-          <h3 className="text-2xl">
-            Your contact has been saved successfully!
-          </h3>
+function Notification(props) {
+
+  return props.trigger ? (
+    <div className="bg-black bg-opacity-85 h-screen p-20 fixed w-screen flex justify-center items-center z-50">
+      <div className="relative p-10 bg-white rounded-2xl">
+        {props.children}
+
+        <div className="text-center pt-4">
+          <FilledButton
+            text={props.text}
+            onClick={() => {props.setClose(false)}}
+            destination="/contacts"
+          />
         </div>
-        <Button text="Okay" />
-      </h1>
+      </div>
     </div>
-  )
+  ) : (
+    ""
+  );
 }
 
-export default Notification
+export default Notification;

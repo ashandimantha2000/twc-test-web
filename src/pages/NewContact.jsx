@@ -7,7 +7,7 @@ import Button from "../components/micro-components/Button";
 import Notification from "../components/Alerts/Notification.jsx";
 
 function NewContact() {
-  // const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [fullname, setFullname] = useState("");
   const [gender, setGender] = useState("Male");
   const [email, setEmail] = useState("");
@@ -15,7 +15,6 @@ function NewContact() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSaveContact = () => {
-    console.log("Clicked");
     const data = {
       fullname,
       gender,
@@ -25,10 +24,10 @@ function NewContact() {
 
     setLoading(true);
     axios
-      .post("http://localhost:5555/contacts/new", data)
+      .post("http://localhost:5555/contacts/new", data)   
       .then(() => {
         setLoading(false);
-        navigate("/contacts");
+        // navigate("/contacts");
       })
       .catch((err) => {
         console.log(err);
@@ -37,67 +36,71 @@ function NewContact() {
       });
   };
   return (
-    <Background>
-      <h2 className="title pt-10">
-        New
+    <div>
+      <Notification text="Close" trigger={showNotification} setClose={setShowNotification}>
+        Your contact has been saved successfully!
+      </Notification>
+      <Background>
+        <h2 className="title pt-10">
+          New
+          <br />
+          contact
+        </h2>
         <br />
-        contact
-      </h2>
-      <br />
-      {loading ? <Spinner /> : ""}
-      <div className="flex justify-between pr-96">
-        <input
-          className="textfield"
-          type="text"
-          placeholder="full name"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
-        />
-        <input
-          className="textfield"
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <br />
-
-      <div className="flex justify-between pr-96">
-        <input
-          className="textfield"
-          type="text"
-          placeholder="phone number"
-          value={phonenumber}
-          onChange={(e) => setPhonenumber(e.target.value)}
-        />
-
-        <h4>Gender</h4>
-        <label className="block mb-2 text-white">
+        {loading ? <Spinner /> : ""}
+        <div className="flex justify-between pr-96">
           <input
-            type="radio"
-            name="gender"
-            value="Male"
-            className="mr-2"
-            onClick={(e) => setGender(e.target.value)}
+            className="textfield"
+            type="text"
+            placeholder="full name"
+            value={fullname}
+            onChange={(e) => setFullname(e.target.value)}
           />
-          Male
-        </label>
-        <label className="block mb-2 text-white">
           <input
-            type="radio"
-            name="gender"
-            value="Female"
-            className="mr-2"
-            onClick={(e) => setGender(e.target.value)}
+            className="textfield"
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          Female
-        </label>
-      </div>
-      <br />
-      <Button text="add your first contact" onClick={handleSaveContact} />
-  
-    </Background>
+        </div>
+        <br />
+
+        <div className="flex justify-between pr-96">
+          <input
+            className="textfield"
+            type="text"
+            placeholder="phone number"
+            value={phonenumber}
+            onChange={(e) => setPhonenumber(e.target.value)}
+          />
+
+          <h4>Gender</h4>
+          <label className="block mb-2 text-white">
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              className="mr-2"
+              onClick={(e) => setGender(e.target.value)}
+            />
+            Male
+          </label>
+          <label className="block mb-2 text-white">
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              className="mr-2"
+              onClick={(e) => setGender(e.target.value)}
+            />
+            Female
+          </label>
+        </div>
+        <br />
+        <Button text="add your first contact" onClick={() => { handleSaveContact(); setShowNotification(true); }} />
+      </Background>
+    </div>
   );
 }
 
