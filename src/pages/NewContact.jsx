@@ -27,7 +27,7 @@ function NewContact() {
       .post("http://localhost:5555/contacts/new", data)   
       .then(() => {
         setLoading(false);
-        // navigate("/contacts");
+        // navigate("/contacts");  
       })
       .catch((err) => {
         console.log(err);

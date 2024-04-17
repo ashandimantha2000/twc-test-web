@@ -5,10 +5,13 @@ import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
 import axios from "axios";
 import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
+import DeleteNotification from "../components/Alerts/DeleteNotification";
 
 function Contacts() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -25,7 +28,12 @@ function Contacts() {
   }, []);
 
   return (
-    <Background>
+    <div>
+      <DeleteNotification trigger={showNotification} setClose={setShowNotification} text="Yes" secondary="Cancel">
+        <h1>Do you want to delete the contact?</h1>
+      </DeleteNotification>
+      
+      <Background>
       <div className="flex justify-between pt-12">
         <h2 className="title">Contacts</h2>
         <Button text="add new contact" destination="/contacts/new" />
@@ -58,7 +66,10 @@ function Contacts() {
                   <td className="px-6 py-4">{contact.phonenumber}</td>
                   <td className="px-6 py-4 flex justify-around">
                     <MdModeEdit />
-                    <RiDeleteBinLine />
+                    <Link to={`/contacts/delete/${contact._id}`}>
+                      <RiDeleteBinLine />
+                    </Link>
+                    <button onClick={()=>setShowNotification(true)}>bu</button>
                   </td>
                 </tr>
               ))}
@@ -67,6 +78,7 @@ function Contacts() {
         </div>
       )}
     </Background>
+    </div>
   );
 }
 
