@@ -12,7 +12,7 @@ function Welcome() {
             <br />
             to add new contact.
           </h3>         
-          <Button text="add your first contact" destination="/contacts" />
+          <Button text="add your first contact" destination="/contacts/new" />
         </div>
       </Background>
 
