@@ -33,7 +33,6 @@ function DeleteNotification(props) {
             // onClick={() => {
             //   props.setClose(false);
             // }}
-            onClick={handleDeleteContact}
             destination="/contacts"
           />
 

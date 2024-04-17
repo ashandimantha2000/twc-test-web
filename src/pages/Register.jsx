@@ -16,8 +16,28 @@ function Register() {
       return;
     }
 
+    if (!validateEmail(email)) {
+      setError("Invalid email format");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
+
+    if (!/\d/.test(password)) {
+      setError("Password must contain at least one digit");
+      return;
+    }
+
+    if (!/[a-zA-Z]/.test(password)) {
+      setError("Password must contain at least one letter");
       return;
     }
 
@@ -29,6 +49,11 @@ function Register() {
     setPassword("");
     setConfirmPassword("");
     setError("");
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   return (

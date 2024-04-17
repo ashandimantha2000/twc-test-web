@@ -33,7 +33,7 @@ function Login() {
             <input
               className="textfield"
               type="text"
-              placeholder="full name"
+              placeholder="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -47,9 +47,11 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <br />
-          <div className="flex justify-between align-middle">
-            <Button text="Login" destination="/" onClick={handleLogin} />
+
+          <div className="pt-12 flex justify-between align-middle">
+            <Button text="Login"
+            destination="/"
+            onClick={handleLogin} />
             <p className="text-xl px-4">or</p>
             <Link to="/register">
               <h4 className="underline text-xl">&lt; Click here to Register</h4>

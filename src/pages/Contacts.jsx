@@ -69,7 +69,7 @@ function Contacts() {
                     <Link to={`/contacts/delete/${contact._id}`}>
                       <RiDeleteBinLine />
                     </Link>
-                    <button onClick={()=>setShowNotification(true)}>bu</button>
+                    <button onClick={()=>setShowNotification(true)}>Toast</button>
                   </td>
                 </tr>
               ))}
