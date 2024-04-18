@@ -3,8 +3,11 @@
 Welcome - /
 <br>
 Login - /login
+<br>
 Register - /register
+<br>
 Contacts - /contacts
+<br>
 Add Contacts - /contacts/new
 
 
