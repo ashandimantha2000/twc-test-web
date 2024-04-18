@@ -13,7 +13,6 @@ function NewContact() {
   const [email, setEmail] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const handleSaveContact = () => {
     const data = {
       fullname,
