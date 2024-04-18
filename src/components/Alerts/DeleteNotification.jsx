@@ -34,7 +34,7 @@ function DeleteNotification(props) {
                         text={props.text}
                         onClick={() => {
                             handleDeleteContact();props.setClose(false);
-                            //reaload the page
+                            //reload the page
                             setTimeout(() => {
                                 window.location.reload();
                             }, 500);
