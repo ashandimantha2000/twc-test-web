@@ -1,73 +1,55 @@
 import { useState } from "react";
 import Layout from "../components/layout.jsx";
 import Button from "../components/micro-components/Button.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    retypePassword: "",
+  });
+
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = () => {
-    // Perform validation here
-    if (!email || !password || !confirmPassword) {
-      setError("Please fill in all fields");
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setError("Invalid email format");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters long");
-      return;
-    }
-
-    if (!/\d/.test(password)) {
-      setError("Password must contain at least one digit");
-      return;
-    }
-
-    if (!/[a-zA-Z]/.test(password)) {
-      setError("Password must contain at least one letter");
-      return;
-    }
-
-    // Perform registration logic here
-    // ...
-
-    // Clear form fields and error message
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    setError("");
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:5555/register";
+      const { data: res } = await axios.post(url, data);
+      navigate("/login");
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
 
   return (
     <div>
       <Layout>
         <div className="p-36 z-50 absolute">
-          <h1 className="primary">Register Now</h1>
+          <h1 className="primary pb-12">Register Now</h1>
           <div className="flex flex-col pt-6">
             <input
               className="textfield"
               placeholder="e-mail"
               type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              onChange={handleChange}
+              value={data.email}
+              required
             />
 
             <br />
@@ -75,8 +57,10 @@ function Register() {
               className="textfield"
               placeholder="password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              onChange={handleChange}
+              value={data.password}
+              required
             />
 
             <br />
@@ -84,18 +68,20 @@ function Register() {
               className="textfield"
               placeholder="confirm password"
               type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              name="retypePassword"
+              onChange={handleChange}
+              value={data.retypePassword}
+              required
             />
-
             <br />
             {error && <p className="text-red-500">{error}</p>}
+            <br />
             <Button
               text="Register"
-              destination="/login"
-              onClick={handleRegister}
+              onClick={handleSubmit}
             />
             <br />
+
             <Link to="/login">
               <h4 className="underline">&lt; Back to login</h4>
             </Link>

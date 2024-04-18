@@ -65,6 +65,7 @@ DeleteNotification.propTypes = {
     setClose: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
+    secondary: PropTypes.string.isRequired,
 };
 
 export default DeleteNotification;
