@@ -12,11 +12,6 @@ Contacts - /contacts
 <br>
 Add Contacts - /contacts/new
 
-## Resources
-export const PORT = 5555;
-<br>
-export const MONGO_URI = 'mongodb+srv://root:root@twc-db.naymvey.mongodb.net/twc?retryWrites=true&w=majority&appName=TWC-DB';
-
 ## Tech Stack
 
 ReactJS, Vite, TailwindCSS
