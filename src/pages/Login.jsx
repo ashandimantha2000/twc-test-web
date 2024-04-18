@@ -2,21 +2,31 @@ import { useState } from "react";
 import Layout from "../components/layout.jsx";
 import Button from "../components/micro-components/Button.jsx";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
-    // Perform login validation here
-    if (email === "" || password === "") {
-      setError("Please enter both email and password.");
-    } else {
-      // Perform actual login logic here
-      // e.g., make an API call to authenticate the user
-      // If login is successful, redirect the user to the desired page
-      // If login fails, display an error message
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:5555/login";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+      window.location = "/";
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
     }
   };
 
@@ -34,8 +44,11 @@ function Login() {
               className="textfield"
               type="text"
               placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+							onChange={handleChange}
+							value={data.email}
+							required
+              
             />
 
             <br />
@@ -43,15 +56,16 @@ function Login() {
               className="textfield"
               placeholder="password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+							onChange={handleChange}
+							value={data.password}
+							required
+             
             />
           </div>
 
           <div className="pt-12 flex justify-between align-middle">
-            <Button text="Login"
-            destination="/"
-            onClick={handleLogin} />
+            <Button text="Login" destination="/" onClick={handleSubmit} />
             <p className="text-xl px-4">or</p>
             <Link to="/register">
               <h4 className="underline text-xl">&lt; Click here to Register</h4>

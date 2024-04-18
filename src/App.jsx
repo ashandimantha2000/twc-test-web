@@ -8,6 +8,7 @@ import NewContact from "./pages/NewContact.jsx";
 import Test from "./pages/Test.jsx";
 
 function App() {
+  const user = localStorage.getItem("token");
   return (
     <Routes>
       <Route path="/" element={<Welcome />} />

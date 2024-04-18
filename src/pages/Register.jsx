@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Layout from "../components/layout.jsx";
 import Button from "../components/micro-components/Button.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 import axios from "axios";
 
 function Register() {
@@ -10,9 +12,9 @@ function Register() {
     password: "",
     retypePassword: "",
   });
-
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -22,8 +24,10 @@ function Register() {
     e.preventDefault();
     try {
       const url = "http://localhost:5555/register";
+      alert('Registration successful! Please login to continue.');
+      navigate('/login');
       const { data: res } = await axios.post(url, data);
-      navigate("/login");
+      
       console.log(res.message);
     } catch (error) {
       if (
