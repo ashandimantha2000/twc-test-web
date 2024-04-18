@@ -65,18 +65,26 @@ function Contacts() {
                 {contacts.map((contact) => (
                   <tr key={contact._id}>
                     <th className="px-6 py-4 font-medium ">
-                      {contact.gender === 'Male' ? (
-                        <img src="../src/assets/images/Profile-Male.png" alt="male" />
+                      {contact.gender === "Male" ? (
+                        <img
+                          src="../src/assets/images/Profile-Male.png"
+                          alt="male"
+                        />
                       ) : (
-                        <img src="../src/assets/images/Profile-Female.png" alt="female" />
+                        <img
+                          src="../src/assets/images/Profile-Female.png"
+                          alt="female"
+                        />
                       )}
                     </th>
                     <td className="px-6 py-4">{contact.fullname}</td>
                     <td className="px-6 py-4">{contact.gender}</td>
                     <td className="px-6 py-4">{contact.email}</td>
                     <td className="px-6 py-4">{contact.phonenumber}</td>
-                    <td className="px-6 py-4 flex justify-around">
-                      <MdModeEdit />
+                    <td className="px-6  pt-9 mr-9 flex justify-around">
+                      <button>
+                        <MdModeEdit />
+                      </button>
 
                       <button
                         onClick={() => {
