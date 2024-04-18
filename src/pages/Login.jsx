@@ -18,7 +18,11 @@ function Login() {
       const url = "http://localhost:5555/login";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      window.location = "/";
+      console.log(res);
+      if (res === 'OK') {
+        window.location.href = "/contacts/new";
+      }
+      // window.location = "//contacts/new";
     } catch (error) {
       if (
         error.response &&
@@ -45,10 +49,9 @@ function Login() {
               type="text"
               placeholder="email"
               name="email"
-							onChange={handleChange}
-							value={data.email}
-							required
-              
+              onChange={handleChange}
+              value={data.email}
+              required
             />
 
             <br />
@@ -57,15 +60,18 @@ function Login() {
               placeholder="password"
               type="password"
               name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-             
+              onChange={handleChange}
+              value={data.password}
+              required
             />
           </div>
 
           <div className="pt-12 flex justify-between align-middle">
-            <Button text="Login" destination="/" onClick={handleSubmit} />
+            <Button
+              text="Login"
+              destination="/contacts/new"
+              onClick={handleSubmit}
+            />
             <p className="text-xl px-4">or</p>
             <Link to="/register">
               <h4 className="underline text-xl">&lt; Click here to Register</h4>
