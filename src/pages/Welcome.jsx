@@ -2,6 +2,10 @@ import Button from "../components/micro-components/Button";
 import Background from "../components/Background";
 
 function Welcome() {
+  const user= sessionStorage.getItem('token');
+if (user=== null) {
+    window.location.href = "/login";
+}
   return (
  
       <Background>
