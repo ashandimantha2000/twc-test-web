@@ -1,5 +1,10 @@
 
 # TWC Contact Portal Client-side App
+Welcome - /
+Login - /login
+Register - /register
+Contacts - /contacts
+Add Contacts - /contacts/new
 
 
 ## Tech Stack
