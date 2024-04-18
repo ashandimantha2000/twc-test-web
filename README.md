@@ -1,6 +1,6 @@
 
 # TWC Contact Portal Client-side App
-TWC Innovations Internship Assignment Client-side application
+TWC Innovations Contact Poratal Client-side application
 ## Routes
 Welcome - /
 <br>
